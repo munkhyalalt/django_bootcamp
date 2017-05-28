@@ -1,0 +1,23 @@
+{% extends 'first_app/base.html' %}
+{% load staticfiles %}
+
+{% block block_content %}
+
+    <h1>Login</h1>
+
+    <form method="post" action="{% url 'first_app:login' %}">
+
+        {% csrf_token %}
+        <label for="username">User name:</label>
+        <input type="text" name="username" placeholder="Enter user name">
+
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+
+
+        <input type="submit" name="Login">
+
+    </form>
+
+
+{% endblock %}

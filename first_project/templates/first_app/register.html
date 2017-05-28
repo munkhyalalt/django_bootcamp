@@ -1,0 +1,23 @@
+{% extends 'first_app/base.html' %}
+{% load staticfiles %}
+
+{% block block_content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Django LEVEL FIVE</h1>
+        </div>
+        {% if registered %}
+            <h1>Thank you for registering!</h1>
+        {% else %}
+            <div>
+                <h2>REGISTER FORM</h2>
+                <form enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    {{ profile_form.as_p }}
+                    <input type="submit" class="btn btn-primary" value="Register">
+                </form>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

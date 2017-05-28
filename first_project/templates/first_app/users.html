@@ -1,0 +1,28 @@
+{% extends 'first_app/base.html' %}
+{% load staticfiles %}
+
+{% block block_content %}
+
+    <h1>Django LEVEL FOUR</h1>
+    <h2>Web page User records</h2>
+    <div class="djangotwo">
+        {% if users %}
+            <ol>
+                {% for user in users %}
+
+                    <li>User Info:</li>
+                    <ul>
+                        <li>{{ user.first_name }}</li>
+                        <li>{{ user.last_name }}</li>
+                        <li>{{ user.email }}</li>
+                        <p></p>
+                    </ul>
+
+                {% endfor %}
+            </ol>
+        {% else %}
+            <p>No records found</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

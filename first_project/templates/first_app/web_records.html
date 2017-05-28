@@ -1,0 +1,29 @@
+{% extends 'first_app/base.html' %}
+{% load staticfiles %}
+
+{% block block_content %}
+
+    <h1>Django LEVEL TWO</h1>
+    <h2>Web page Access records</h2>
+    <div class="djangotwo">
+        {% if data %}
+            <table border="1">
+                <thead>
+                <th>Site Name</th>
+                <th>Date Access</th>
+                <th>Url</th>
+                </thead>
+                {% for rec in data %}
+                    <tr>
+                        <td>{{ rec.name }}</td>
+                        <td>{{ rec.date|date:'d-M-Y' }}</td>
+                        <td>{{ rec.name.url }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No Access records found</p>
+        {% endif %}
+    </div>
+
+{% endblock %}
